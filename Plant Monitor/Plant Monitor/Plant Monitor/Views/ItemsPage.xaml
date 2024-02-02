@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Page where the Users plant list is-->
+<!--The background of the page-->
+    <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plant_Monitor.Views.ItemsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:Plant_Monitor.ViewModels"  
+             xmlns:model="clr-namespace:Plant_Monitor.Models"  
+             x:Name="BrowseItemsPage"
+             BackgroundImageSource="Background.png">
+	<RefreshView x:DataType="local:ItemsViewModel" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" >
+		<!--Where all of the items lay on-->
+        <RelativeLayout>
+            <!--The StackLayout should have 5% right margin, take up 90%, and a 5% left margin-->
+            <!--The parent in this case would be the phone resolution size for width and height-->
+            <StackLayout VerticalOptions="Center"
+                         HorizontalOptions="Fill"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.05}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.90}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.99}"
+                         BackgroundColor="Transparent">
+                <SearchBar x:Name="ItemsPageSearchBar" 
+				    Placeholder="Search Plants"
+				    TextChanged="ItemsPageSearchChanged"/>
+                <StackLayout
+                x:Name="SearchBarRadioButton"
+				Orientation="Horizontal"
+				RadioButtonGroup.GroupName="SearchFilterOptions">
+                    <Label Text="Search by:"
+					   FontSize="Small"/>
+                    <RadioButton 
+					Content="Common Name"
+					FontSize="Small"
+					CheckedChanged="RadioButtonClicked"
+					IsChecked="true"/>
+                    <RadioButton 
+					Content="Scientifc Name"
+					FontSize="Small"
+					CheckedChanged="RadioButtonClicked"/>
+                </StackLayout>
+                <CollectionView x:Name="ItemsListView"
+                    SelectionMode="Single"
+				    SelectionChanged="OnSelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="15"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="#028A0F" CornerRadius="20" BackgroundColor="#028A0F"
+                                   Padding="10">
+                                <Frame BorderColor="#03AC13" BackgroundColor="#03AC13" CornerRadius="10"
+                                       Padding="10">
+                                    <Grid x:DataType="model:Plant"
+                                    BackgroundColor="#03AC13"
+                                    Margin="0,0,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height=".01*"/>
+                                            <RowDefinition Height ="*"/>
+                                            <RowDefinition Height ="*"/>
+                                            <RowDefinition Height ="*"/>
+                                            <RowDefinition Height ="*"/>
+                                        </Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width=".25*"/>
+											<ColumnDefinition Width ="*"/>
+											<ColumnDefinition Width ="*"/>
+										</Grid.ColumnDefinitions>
+
+										<Label Grid.Row ="1" Grid.Column="1" Text="{Binding CommonName}"
+                                        FontAttributes="Bold"
+                                        TextColor="Black"
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="18" />
+
+										<Label Grid.Row="2" Grid.Column ="2" Text="{Binding ScientificName}"
+                                        TextColor="#333333"
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="14" />
+
+                                        <Label Grid.Row="2" Grid.Column="1" Text="Scientific Name:" 
+                                        TextColor="#333333"
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="14" />
+
+                                        <Label Grid.Row ="3" Grid.Column="1" Text="Light Value: " 
+                                        TextColor="Black"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        FontSize="13" />
+
+                                        <Label Grid.Row="3" Grid.Column="2" Text="{Binding Light}" 
+                                        TextColor="Black"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        FontSize="13" />
+
+                                        <Label Grid.Row="4" Grid.Column="1" Text="Moisture Level: "
+                                        TextColor="Black"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        FontSize="13" />
+
+                                        <Label Grid.Row="4" Grid.Column="2" Text="{Binding Moisture}" 
+                                        TextColor="Black"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        FontSize="13" />
+                                    </Grid>
+                                </Frame>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            <Grid>
+                <StackLayout>
+                    <Button x:Name="ArchiveButton" Text="Archive Page" Clicked="OnArchiveClick"
+                    BorderColor="#896129"
+                    BorderWidth="5"
+                    BackgroundColor="#c58d40"
+                    TextColor="Black"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End"    
+                    CornerRadius="30"
+                    WidthRequest="125" HeightRequest="40"/>
+                </StackLayout>
+                <Button x:Name="Button1"
+                    BorderColor="#896129"
+                    BorderWidth="5"
+                    BackgroundColor="#c58d40"
+                    Text="+"
+                    HorizontalOptions="End"
+                    TextColor="Black"
+                    Clicked="OnButtonClick"
+                    CornerRadius="30"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"/>
+            </Grid>
+            </StackLayout>
+        </RelativeLayout>
+    </RefreshView>
+</ContentPage>

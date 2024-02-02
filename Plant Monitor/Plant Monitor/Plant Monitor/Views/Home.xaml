@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plant_Monitor.Views.Home"
+             xmlns:vm="clr-namespace:Plant_Monitor.ViewModels"
+			 xmlns:local="clr-namespace:Plant_Monitor.ViewModels"  
+             xmlns:model="clr-namespace:Plant_Monitor.Models"  
+			Title="{Binding Title}">
+	<!--<RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+		<StackLayout>
+			<CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Plants}"
+                SelectionMode="None">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<StackLayout Padding="10" x:DataType="model:Item">
+							<Label Text="{Binding Text}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+							<Label Text="{Binding Description}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+							<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+								</TapGestureRecognizer>
+							</StackLayout.GestureRecognizers>
+						</StackLayout>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+			<Button x:Name="Button1"
+                Text="+"
+                Clicked="OnButtonClick"
+                CornerRadius="30"
+                WidthRequest="45" HeightRequest="45"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-40}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-40}"
+            HorizontalOptions="End" VerticalOptions="End"/>
+		</StackLayout>
+	</RefreshView>-->
+
+	<!--<ContentPage.BindingContext>
+        <vm:HomeViewModel />
+    </ContentPage.BindingContext>
+
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Search" Clicked="SearchCurrent"/>
+	</ContentPage.ToolbarItems>
+
+	<ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<StackLayout Grid.ColumnSpan="3" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+				<Label Text="Currently Tracking" FontSize="Title"/>
+			</StackLayout>
+		</StackLayout>
+		<RefreshView Grid.RowSpan="4" Grid.ColumnSpan="3" Grid.Row="1">
+			<CollectionView x:Name="CurrentPlantsView"
+                ItemsSource="{Binding Plants}"
+                SelectionMode="None">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<StackLayout Padding="10" x:DataType="model:Item" BackgroundColor="Gray">
+							<Label Text="{Binding Text}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+							<Label Text="{Binding Description}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+							<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+								</TapGestureRecognizer>
+							</StackLayout.GestureRecognizers>
+						</StackLayout>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</RefreshView>
+		<Button
+			Grid.Row="4"
+			Grid.Column="2"
+			Text="+" 
+			Font="30"
+			CornerRadius="90"
+			WidthRequest="20"
+			HeightRequest="20"
+			BackgroundColor="{StaticResource Primary}"
+			TextColor="White" 
+			Clicked="AddNewPlant"/>
+
+
+
+
+	</Grid>-->
+
+</ContentPage>
+
+<!--<?xml version="1.0" encoding="utf-8" ?>-->
+<!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plant_Monitor.Views.ItemsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:Plant_Monitor.ViewModels"  
+             xmlns:model="clr-namespace:Plant_Monitor.Models"  
+             x:Name="Home">
+	<RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+		<StackLayout>
+			<CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<StackLayout Padding="10" x:DataType="model:Item">
+							<Label Text="{Binding Text}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+							<Label Text="{Binding Description}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+							<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+								</TapGestureRecognizer>
+							</StackLayout.GestureRecognizers>
+						</StackLayout>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+			<Button x:Name="Button1"
+                Text="+"
+                Clicked="OnButtonClick"
+                CornerRadius="30"
+                WidthRequest="45" HeightRequest="45"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-40}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-40}"
+            HorizontalOptions="End" VerticalOptions="End"/>
+		</StackLayout>
+	</RefreshView>
+</ContentPage>-->

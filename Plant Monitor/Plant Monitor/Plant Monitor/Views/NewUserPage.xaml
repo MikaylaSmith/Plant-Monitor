@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Page for new user set up/login-->
+
+<!--The background of the page-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plant_Monitor.Views.NewUserPage"
+			 Shell.NavBarIsVisible="True"
+             BackgroundImageSource="Background.png">
+    <ContentPage.Content>
+        <!--This is the layout that the User information lays on-->
+        <RelativeLayout>
+            <!--The StackLayout should have 5% right margin, take up 90%, and a 5% left margin-->
+            <!--The parent in this case would be the phone resolution size for width and height-->
+            <StackLayout VerticalOptions="Center"
+                         HorizontalOptions="Fill"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.05}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.90}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                         BackgroundColor="Transparent">
+                <Label Text="Create New User"/>
+                <Entry
+				x:Name="NewUserNameField"
+				Placeholder="Username"	
+				Keyboard="Default"
+				IsPassword="False"
+				IsTextPredictionEnabled="False"
+				ReturnType="Next"
+                BackgroundColor="White"
+				/>
+                <Entry
+				x:Name="NewUserPasswordField"
+				Placeholder="Password"
+				Keyboard="Default"
+				ClearButtonVisibility="WhileEditing"
+				IsTextPredictionEnabled="False"
+				IsPassword="True"
+				ReturnType="Next"
+                BackgroundColor="White"
+				/>
+                <Entry
+				x:Name="NewUserPasswordConfirmField"
+				Placeholder="Confirm Password"
+				Keyboard="Default"
+				ClearButtonVisibility="WhileEditing"
+				IsTextPredictionEnabled="False"
+				IsPassword="True"
+				ReturnType="Send"
+				Completed="CreateNewUser"
+                BackgroundColor="White"
+				/>
+                <Button VerticalOptions="Center" Text="Create" Clicked="CreateNewUser"/>
+            </StackLayout>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

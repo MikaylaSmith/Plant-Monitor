@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plant_Monitor.Views.PlantDatabaseDetailPage"
+             Title="{Binding Title}"
+             BackgroundImageSource="Background.png">
+    <RelativeLayout>
+        <!--The StackLayout should have 5% right margin, take up 90%, and a 5% left margin-->
+        <!--The parent in this case would be the phone resolution size for width and height-->
+        <StackLayout VerticalOptions="Start"
+                         HorizontalOptions="Fill"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.05}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.05}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.90}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                         BackgroundColor="Transparent">
+            <Label Text="Common Name:" FontSize="Medium" />
+            <Label x:Name="CommonName" FontSize="Small"/>
+            <Label Text="Scientific Name:" FontSize="Medium" />
+            <Label x:Name="ScientificName" FontSize="Small"/>
+            <Label Text="Optimal Light Level:" FontSize="Medium" />
+            <Label x:Name="LightLevel" FontSize="Small"/>
+            <Label Text="Optimal Soil Moisture Level:" FontSize="Medium" />
+            <Label x:Name="MoistureLevel" FontSize="Small"/>
+            <Label Text="Information:" FontSize="Medium" />
+            <Label x:Name="PlantInfo" FontSize="Small"/>
+			<Button x:Name="Add_Button" Text="Add Plant to List" Clicked="Add_Plant"
+                    BorderColor="#896129"
+                    BorderWidth="5"
+                    BackgroundColor="#c58d40"
+                    TextColor="Black"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End"    
+                    CornerRadius="30"/>
+			<!--<Button Text="Schedule" Clicked="Schedule_Clicked" />-->
+        </StackLayout>
+    </RelativeLayout>
+</ContentPage>

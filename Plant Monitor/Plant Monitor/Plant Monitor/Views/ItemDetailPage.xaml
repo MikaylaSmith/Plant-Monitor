@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plant_Monitor.Views.ItemDetailPage"
+             Title="{Binding Title}"
+             BackgroundImageSource="Background.png">
+	<RelativeLayout>
+<StackLayout VerticalOptions="Start"
+                         HorizontalOptions="Fill"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.05}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.05}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.90}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                         BackgroundColor="Transparent">
+            <Label Text="Nick Name:" FontSize="Medium" />
+            <Label x:Name="NickName" FontSize="Small"/>
+            <Label Text="Common Name:" FontSize="Medium" />
+            <Label x:Name="CommonName" FontSize="Small"/>
+            <Label Text="Scientific Name:" FontSize="Medium" />
+            <Label x:Name="ScientificName" FontSize="Small"/>
+            <Label Text="Optimal Light Level:" FontSize="Medium" />
+            <Label x:Name="LightLevel" FontSize="Small"/>
+            <Label Text="Optimal Soil Moisture Level:" FontSize="Medium" />
+            <Label x:Name="MoistureLevel" FontSize="Small"/>
+            <Label Text="Information:" FontSize="Medium" />
+            <Label x:Name="PlantInfo" FontSize="Small"/>
+            <Label Text="Plant ID:" FontSize="Medium" />
+            <Label x:Name="PlantID" FontSize="Small"/>
+            <Grid>
+                <StackLayout>
+                    <Button x:Name="DeleteButton" Text="Remove Plant" Clicked="OnRemoved"
+                    BorderColor="#896129"
+                    BorderWidth="5"
+                    BackgroundColor="#c58d40"
+                    TextColor="Black"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End"    
+                    CornerRadius="30"/>
+                </StackLayout>
+                <Button x:Name="Button1"
+                    BorderColor="#896129"
+                    BorderWidth="5"
+                    BackgroundColor="#c58d40"
+                    Text="Generate Report"
+                    HorizontalOptions="End"
+                    TextColor="Black"
+                    Clicked="OnButtonClick"
+                    CornerRadius="30"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"/>
+            </Grid>
+        </StackLayout>
+	</RelativeLayout>
+</ContentPage>

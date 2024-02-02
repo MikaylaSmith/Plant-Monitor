@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plant_Monitor.Views.NewItemPage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="New Item"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:viewmodels="clr-namespace:Plant_Monitor.ViewModels" x:DataType="viewmodels:NewItemViewModel"
+             ios:Page.UseSafeArea="true"
+			 BackgroundImageSource="Background.png">
+    <ContentPage.Content>
+        <StackLayout Spacing="6" Padding="15">
+            <!--Label for plant names-->
+            <Label Text="Enter common name for plant" FontSize="Large" />
+            <!--Binds the common name feature to the plant names editor for when it gets added to the items page-->
+            <Entry Text="{Binding CommonName, Mode=TwoWay}" FontSize="Medium" />
+            <!--Label for plant names-->
+			<Label Text="Enter nickname for plant" FontSize="Large" />
+			<StackLayout Orientation="Horizontal">
+                <!--Creating button for cancel command-->
+				<Button Text="Cancel" Command="{Binding CancelCommand}"
+				    BorderColor="#896129"
+                    BorderWidth="5"
+                    BackgroundColor="#c58d40"
+                    TextColor="Black"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End"    
+                    CornerRadius="30"/>
+				<!--Creating button for save command-->
+				<Button Text="Save" Command="{Binding SaveCommand}"
+				    BorderColor="#896129"
+                    BorderWidth="5"
+                    BackgroundColor="#c58d40"
+                    TextColor="Black"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End"    
+                    CornerRadius="30"/>
+			</StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
